@@ -34,6 +34,8 @@ HISTCONTROL=ignoreboth
 HISTCONTROL=ignorespace
 export HISTIGNORE="&:ls:[bf]g:exit"
 export GREP_OPTIONS='--color=auto'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border fd --type f'
+alias fzfp="fzf --preview='bat --color=always --style=numbers --theme OneHalfDark {}' --preview-window=down"
 # ls
 alias ls='ls -hF --color=auto'
 alias lr='ls -R'                    # recursive ls
@@ -95,10 +97,11 @@ exitstatus()
         echo -en "\e[31;1m:D\e[0m"
     fi
 }
-source /data/data/com.termux/files/usr/etc/bash_completion.d/git-prompt.sh
+#source /data/data/com.termux/files/usr/etc/bash_completion.d/git-prompt.sh
+source ~/.config/bash/git-prompt.sh
 rightprompt()
 {
   printf "\e[38;5;141;1m%*s" $COLUMNS "¯\\_(ツ)_/¯"
 }
 
-PS1="\[$(tput sc; rightprompt; tput rc)\]\e[38;5;196;1mabbas\e[0m\e[38;5;33;1m@\e[0m\e[38;5;135;1m\h\e[0m\e[93;1m$(__git_ps1)\n\W\e[0m $(exitstatus) "
+PS1='\[$(tput sc; rightprompt; tput rc)\]\e[38;5;203;1m\u\e[0m\e[38;5;33;1m@\e[0m\e[38;5;255;1m\h\e[0m\e[38;5;196;1m$(__git_ps1)\n\e[0m\e[38;5;201;1m\w\e[0m $(exitstatus) '
