@@ -92,7 +92,7 @@ GIT_PS1_SHOWUPSTREAM='auto'
 exitstatus()
 {
     if [[ $? == 0 ]]; then
-        echo -en "\e[32;1m:)\e[0m"
+        echo -en "\e[38;5;209;1m:)\e[0m"
     else
         echo -en "\e[31;1m:D\e[0m"
     fi
@@ -104,4 +104,4 @@ rightprompt()
   printf "\e[38;5;141;1m%*s" $COLUMNS "¯\\_(ツ)_/¯"
 }
 
-PS1='\[$(tput sc; rightprompt; tput rc)\]\e[38;5;203;1m\u\e[0m\e[38;5;33;1m@\e[0m\e[38;5;255;1m\h\e[0m\e[38;5;196;1m$(__git_ps1)\n\e[0m\e[38;5;201;1m\w\e[0m $(exitstatus) '
+PS1='\[$(tput sc; rightprompt; tput rc)\]\e[38;5;196;1m\u\e[0m\e[38;5;33;1m@\e[0m\e[38;5;255;1m\h\e[0m\e[38;5;203;1m$(__git_ps1)\e[0m\e[38;5;201;1m : \w\e[0m \n$(exitstatus) '
