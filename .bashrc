@@ -89,19 +89,11 @@ GIT_PS1_SHOWSTASHSTATE='y'
 GIT_PS1_SHOWUNTRACKEDFILES='y'
 GIT_PS1_DESCRIBE_STYLE='contains'
 GIT_PS1_SHOWUPSTREAM='auto'
-exitstatus()
-{
-    if [[ $? == 0 ]]; then
-        echo -en "\e[38;5;209;1m:)\e[0m"
-    else
-        echo -en "\e[31;1m:D\e[0m"
-    fi
-}
-#source /data/data/com.termux/files/usr/etc/bash_completion.d/git-prompt.sh
-source ~/.config/bash/git-prompt.sh
+source /data/data/com.termux/files/usr/etc/bash_completion.d/git-prompt.sh
+#source ~/.config/bash/git-prompt.sh
 rightprompt()
 {
   printf "\e[38;5;141;1m%*s" $COLUMNS "¯\\_(ツ)_/¯"
 }
 
-PS1='\[$(tput sc; rightprompt; tput rc)\]\e[38;5;196;1m\u\e[0m\e[38;5;33;1m@\e[0m\e[38;5;255;1m\h\e[0m\e[38;5;203;1m$(__git_ps1)\e[0m\e[38;5;201;1m : \w\e[0m \n$(exitstatus) '
+PS1='\[$(tput sc; rightprompt; tput rc)\]\e[38;5;196;1mabbas\e[0m\e[38;5;33;2m@\e[0m\e[38;5;255;1m\h\e[0m\e[38;5;203;1m$(__git_ps1)\e[0m\e[38;5;201;1m : \w\e[0m \n$(if [[ \$? == 0 ]]; then echo -en "a"; else echo -en "×•>"; fi) '
