@@ -96,4 +96,8 @@ rightprompt()
   printf "\e[38;5;141;1m%*s" $COLUMNS "¯\\_(ツ)_/¯"
 }
 
-PS1='\[$(tput sc; rightprompt; tput rc)\]\e[38;5;196;1mabbas\e[0m\e[38;5;33;2m@\e[0m\e[38;5;255;1m\h\e[0m\e[38;5;203;1m$(__git_ps1)\e[0m\e[38;5;201;1m : \w\e[0m \n$(if [[ \$? == 0 ]]; then echo -en "a"; else echo -en "×•>"; fi) '
+PS1='\[$(tput sc; rightprompt; tput rc)\]'
+PS1=$PS1"\e[38;5;196;1mabbas\e[0m\e[38;5;33;2m@\e[0m\e[38;5;255;1m\h\e[0m\e[38;5;203;1m"
+PS1=$PS1'$(__git_ps1)'
+PS1=$PS1"\e[0m\e[38;5;201;1m : \w\e[0m\n"
+PS1=$PS1"°×•> "
