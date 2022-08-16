@@ -89,15 +89,20 @@ GIT_PS1_SHOWSTASHSTATE='y'
 GIT_PS1_SHOWUNTRACKEDFILES='y'
 GIT_PS1_DESCRIBE_STYLE='contains'
 GIT_PS1_SHOWUPSTREAM='auto'
-source /data/data/com.termux/files/usr/etc/bash_completion.d/git-prompt.sh
-#source ~/.config/bash/git-prompt.sh
+#source /data/data/com.termux/files/usr/etc/bash_completion.d/git-prompt.sh
+source ~/.config/bash/git-prompt.sh
 rightprompt()
 {
   printf "\e[38;5;141;1m%*s" $COLUMNS "¯\\_(ツ)_/¯"
 }
-
+end="\e[0m\e"
+red0="\e[38;5;196;1m"
+red1="\e[38;5;203;1m"
+blue="\e[38;5;33;2m"
+white="\e[38;5;255;1m"
+voilet="\e[38;5;201;1m"
 PS1='\[$(tput sc; rightprompt; tput rc)\]'
-PS1=$PS1"\e[38;5;196;1mabbas\e[0m\e[38;5;33;2m@\e[0m\e[38;5;255;1m\h\e[0m\e[38;5;203;1m"
+PS1=$PS1"$red0\u$end$blue@$end$white\h$end$red1"
 PS1=$PS1'$(__git_ps1)'
-PS1=$PS1"\e[0m\e[38;5;201;1m : \w\e[0m\n"
+PS1=$PS1"$end$voilet: \w$end\n"
 PS1=$PS1"°×•> "
